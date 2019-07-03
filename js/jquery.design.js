@@ -20,14 +20,20 @@
     'use strict';
     $(function () {
 
-        var
-            iContentArea                    = $('.iContent_Area'),
+        var iContentArea = $('.iContent_Area') ,iContentSection ,iContentSectionContent,iContentSectionH3,iContentSectionButton,iContentSectionField;
+
+        var setContent = function(){
             iContentSection                 = $('section', iContentArea),
             iContentSectionContent          = $('.card', iContentSection),
             iContentSectionH3               = $('h3', iContentSection),
             iContentSectionButton           = $('button', iContentSection),
-            iContentSectionField            = $('.field-content', iContentSection)
-        ;
+            iContentSectionField            = $('.field-content', iContentSection);
+            fieldLabels.set();
+            buttonStyle.set();
+            availableFields.set();
+        }
+
+        iContentArea.load( 'i_top.html', setContent);
 
         var imageAlignment =  (function () {
 
@@ -38,10 +44,10 @@
                iButton.on('click', function () {
                    var b = $(this);
                    iContentArea.load( b.attr('data-layout')+'.html', function() {
+                       setContent();
                        iButton.removeClass('btn-primary btn-secondary');
                        b.addClass('btn-primary');
                        iButton.not('[class*=\'btn-primary\']').addClass('btn-secondary');
-                       iContentSection = $('section', iContentArea);
                    });
                });
 
@@ -66,6 +72,14 @@
             backgroundColor.on('change', function () {
                 iContentSectionContent.css("background-color", $(this).val());
             });
+
+            return{
+                set : function(){
+                    fontFamily.trigger('change');
+                    textColor.trigger('change');
+                    backgroundColor.trigger('change');
+                }
+            }
 
         }());
 
@@ -101,6 +115,15 @@
 
             });
 
+            return{
+                set : function(){
+                    buttonText.trigger('keyup');
+                    textColor.trigger('change');
+                    backgroundColor.trigger('change');
+                    aligment.trigger('change');
+                }
+            }
+
         }());
 
         var availableFields =  (function () {
@@ -131,10 +154,9 @@
                     '                                        </div>\n' +
                     '                                    </div>'
             ;
-            fieldCheck.on('click', function () {
+
+            var elementControl = function () {
                 var val = $(this).val(), isCheck = $(this).is(':checked');
-                console.log(val);
-                console.log(isCheck);
                 switch (val) {
                     case 'email' :
                         if(isCheck) iContentSectionField.append(emailField);
@@ -149,7 +171,14 @@
                         else $('.availableFields_phone', iContentSectionField).remove();
                         break;
                 }
-            });
+            }
+            fieldCheck.on('click', elementControl );
+
+            return{
+                set : function(){
+                    fieldCheck.each(elementControl);
+                }
+            }
         }());
     });
 

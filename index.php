@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with a Design System for Bootstrap 4.">
+    <meta name="author" content="Creative Tim">
+    <title>Form Design</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="assets/nucleo/css/nucleo.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/spectrum/spectrum.css" rel="stylesheet">
+    <!-- Argon CSS -->
+    <link type="text/css" href="css/argon.css?v=1.0.1" rel="stylesheet">
+
+</head>
+<body>
+<main>
+    <div class="row">
+        <div class="col-lg-6 p-0">
+            <section class="section section-shaped section-lg h-100">
+                <div class="shape shape-style-1 bg-gradient-default">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="nav-wrapper">
+                                <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link mb-sm-3 mb-md-0 active show" id="tabs-icons-text-1-tab" data-toggle="tab" href="#tabs-icons-text-1" role="tab" aria-controls="tabs-icons-text-1" aria-selected="false"><i class="ni ni-ruler-pencil mr-2"></i>Design</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#tabs-icons-text-2" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false"><i class="ni ni-ui-04 mr-2"></i>Fields</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-3-tab" data-toggle="tab" href="#tabs-icons-text-3" role="tab" aria-controls="tabs-icons-text-3" aria-selected="true"><i class="ni ni-align-center mr-2"></i>Content</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card shadow">
+                                <div class="card-body">
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade active show" id="tabs-icons-text-1" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+                                            <div class="imageAlignment row mb-3">
+                                                <div class="col-md-12">
+                                                    <h4>Image Alignment</h4>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <a href="javascript:;" data-layout="i_left" class="imageAlignment_iButton btn btn-block btn-secondary btn-lg align-middle h-100">
+                                                        <span class="d-block"><span class="ni ni-image mr-1"></span><span class="ni ni-align-center"></span></span>
+                                                        <span class="d-block left-0 right-0 bottom-1 text-center position-absolute">Left</span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <a href="javascript:;" data-layout="i_top" class="imageAlignment_iButton btn btn-block btn-primary btn-lg align-middle" style="height: 75px">
+                                                        <span class="ni ni-image d-block mb-1"></span><span class="ni ni-align-center d-block"></span>
+                                                        <span class="d-block left-0 right-0 bottom-1 text-center position-absolute">Top</span>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <a href="javascript:;" data-layout="i_right" class="imageAlignment_iButton btn btn-block btn-secondary btn-lg h-100 align-middle">
+                                                        <span class="d-block"><span class="ni ni-align-center mr-1"></span><span class="ni ni-image"></span></span>
+                                                        <span class="d-block left-0 right-0 bottom-1 text-center position-absolute">Right</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="fieldLabels row">
+                                                <div class="col-md-12">
+                                                    <h4>Field Labels</h4>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <label>Font Family</label>
+                                                    <div class="form-group">
+                                                        <select class="fieldLabels_FontFamily form-control">
+                                                            <option value="1" style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif">Arial</option>
+                                                            <option value="2" style="font-family: 'Times New Roman', Times, Baskerville, Georgia, serif">Times New Roman</option>
+                                                            <option value="3" style="font-family: 'Comic Sans MS', 'Marker Felt-Thin', Arial, sans-serif">Comic Sans</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label>Text Color</label>
+                                                    <div class="form-group">
+                                                        <input type="text" value="#000000" placeholder="Chosee" class="fieldLabels_TextColor form-control color-picker" style="display: none" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>Background Color</label>
+                                                    <div class="form-group">
+                                                        <input type="text" value="#FFFFFF" placeholder="Chosee" class="fieldLabels_BackgroundColor form-control color-picker" style="display: none"  />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h4>Button Style</h4>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label>Text</label>
+                                                    <div class="form-group">
+                                                        <input class="buttonStyle_Text form-control" placeholder="Subscribe" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label>Text Color</label>
+                                                    <div class="form-group">
+                                                        <input type="text" value="#000000" placeholder="Chosee" class="buttonStyle_TextColor form-control color-picker" style="display: none" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-64">
+                                                    <label>Background Color</label>
+                                                    <div class="form-group">
+                                                        <input type="text" value="#FFFFFF" placeholder="Chosee" class="buttonStyle_BackgroundColor form-control color-picker" style="display: none"  />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label>Aligment</label>
+                                                    <div class="form-group">
+                                                        <select class="buttonStyle_Aligment form-control">
+                                                            <option value="left">Left</option>
+                                                            <option value="right">Right</option>
+                                                            <option value="center">Center</option>
+                                                            <option value="full">Full Width</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane fade" id="tabs-icons-text-2" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h4>Available Fields</h4>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="custom-control custom-checkbox mb-3">
+                                                        <input class="availableFields_Check custom-control-input" id="fieldCheck1" type="checkbox" value="email">
+                                                        <label class="custom-control-label" for="fieldCheck1">Email Address</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox mb-3">
+                                                        <input class="availableFields_Check custom-control-input" id="fieldCheck2" type="checkbox" value="name">
+                                                        <label class="custom-control-label" for="fieldCheck2">Name</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox mb-3">
+                                                        <input class="availableFields_Check custom-control-input" id="fieldCheck4" type="checkbox" value="phone">
+                                                        <label class="custom-control-label" for="fieldCheck4">Phone Number</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel" aria-labelledby="tabs-icons-text-3-tab">
+                                            <div class="row mb-3">
+                                                <div class="col-md-12">
+                                                    <h4>Image</h4>
+                                                    <p class="description">Suggested dimensions: 490 × 200</p>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <img class="img-thumbnail" src="empty-image.svg">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <ul class="list-unstyled d-none">
+                                                        <li class="l">font-weight-bold</li>
+                                                        <li>1280x835</li>
+                                                        <li><a>Remove</a></li>
+                                                    </ul>
+                                                    <ul class="list-unstyled">
+                                                        <li class="font-weight-bold">Upload an image</li>
+                                                        <li><a>Browse</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <h4>Content</h4>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Head</label>
+                                                    <div class="form-group">
+                                                    <textarea class="form-control"  rows="3" placeholder="Simple"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Body</label>
+                                                    <div class="form-group">
+                                                    <textarea cols="80" id="bodyeditor">
+                                                        <h3>Simple</h3>
+                                                        <p>Simple text</p>
+                                                    </textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Footer</label>
+                                                    <div class="form-group">
+                                                    <textarea cols="80" id="footereditor">
+                                                        simple content
+                                                    </textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-block btn-success">Publish</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-6 p-0 iContent_Area">
+            <? include 'i_top.html'?>
+        </div>
+    </div>
+</main>
+
+<!-- Core -->
+<script src="assets/jquery/jquery.min.js"></script>
+<script src="assets/popper/popper.min.js"></script>
+<script src="assets/bootstrap/bootstrap.min.js"></script>
+<script src="assets/headroom/headroom.min.js"></script>
+<script src="assets/spectrum/spectrum.js"></script>
+<script src="https://cdn.ckeditor.com/4.11.4/basic/ckeditor.js"></script>
+
+<!-- Argon JS -->
+<script src="js/argon.js?v=1.0.1"></script>
+<!-- Hamide YUCE JS -->
+<script src="js/jquery.design.js"></script>
+</body>
+
+</html>

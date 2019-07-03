@@ -20,17 +20,28 @@
     'use strict';
     $(function () {
 
-        var iContentArea = $('.iContent_Area') ,iContentSection ,iContentSectionContent,iContentSectionH3,iContentSectionButton,iContentSectionField;
+        var iContentArea = $('.iContent_Area') ,
+            iContentSection ,
+            iContentSectionContent,
+            iContentSectionH3,
+            iContentSectionButton,
+            iContentSectionField,
+            iContentSectionHead,
+            iContentSectionBody
+        ;
 
         var setContent = function(){
             iContentSection                 = $('section', iContentArea),
             iContentSectionContent          = $('.card', iContentSection),
             iContentSectionH3               = $('h3', iContentSection),
             iContentSectionButton           = $('button', iContentSection),
-            iContentSectionField            = $('.field-content', iContentSection);
+            iContentSectionField            = $('.field-content', iContentSection),
+            iContentSectionHead             = $('h3', iContentSection),
+            iContentSectionBody             = iContentSectionHead.after();
             fieldLabels.set();
             buttonStyle.set();
             availableFields.set();
+            contentTexts.set();
         }
 
         iContentArea.load( 'i_top.html', setContent);
@@ -179,6 +190,44 @@
                     fieldCheck.each(elementControl);
                 }
             }
+        }());
+
+        var contentTexts =  (function () {
+
+            var
+                contentHeadText  = $('.contentHead_text'),
+                contentBodyText  = $('.contentBody_text');
+
+            contentHeadText.on('keyup', function () {
+                var text = $(this).val();
+
+                if(text.length > 0 && text.length <= 250) {
+                    contentHeadText.removeClass('is-invalid');
+                    iContentSectionHead.html(text);
+                }else if(!text.length){
+                    iContentSectionHead.html(contentHeadText.attr('placeholder'));
+                }else{
+                    contentHeadText.addClass('is-invalid');
+                }
+            });
+
+            contentBodyText.on('keyup', function () {
+                var text = $(this).val();
+
+                if(text.length > 0) {
+                    iContentSectionBody.html(text);
+                }else if(!text.length){
+                    iContentSectionBody.html(contentBodyText.attr('placeholder'));
+                }
+            });
+
+            return{
+                set : function(){
+                    contentHeadText.trigger('keyup');
+                    contentBodyText.trigger('keyup');
+                }
+            }
+
         }());
     });
 

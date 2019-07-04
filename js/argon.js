@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
- 
+
 "use strict";
 $(document).ready(function() {
 
@@ -180,9 +180,19 @@ $(document).ready(function() {
 
     // text editor
     CKEDITOR.replace('bodyeditor', {
-        height: 150
+        height: 150,
+        on: {
+            change: function( ) {
+                $('#bodyeditor').val(CKEDITOR.instances['bodyeditor'].getData()).change();
+            }
+        }
     });
     CKEDITOR.replace('footereditor', {
-        height: 150
+        height: 150,
+        on: {
+            change: function( ) {
+                $('#footereditor').val(CKEDITOR.instances['footereditor'].getData()).change();
+            }
+        }
     });
  });   

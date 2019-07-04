@@ -27,7 +27,8 @@
             iContentSectionButton,
             iContentSectionField,
             iContentSectionHead,
-            iContentSectionBody
+            iContentSectionBody,
+            iContentSectionFooter
         ;
 
         var setContent = function(){
@@ -35,13 +36,15 @@
             iContentSectionContent          = $('.card', iContentSection),
             iContentSectionH3               = $('h3', iContentSection),
             iContentSectionButton           = $('button', iContentSection),
-            iContentSectionField            = $('.field-content', iContentSection),
             iContentSectionHead             = $('h3', iContentSection),
-            iContentSectionBody             = iContentSectionHead.after();
+            iContentSectionBody             = iContentSectionHead.nextAll().eq(0),
+            iContentSectionField            = iContentSectionHead.nextAll().eq(1),
+            iContentSectionFooter           = iContentSectionHead.nextAll().eq(2);
             fieldLabels.set();
             buttonStyle.set();
             availableFields.set();
             contentTexts.set();
+
         }
 
         iContentArea.load( 'i_top.html', setContent);
@@ -195,8 +198,9 @@
         var contentTexts =  (function () {
 
             var
-                contentHeadText  = $('.contentHead_text'),
-                contentBodyText  = $('.contentBody_text');
+                contentHeadText     = $('.contentHead_text'),
+                contentBodyText     = $('.contentBody_text'),
+                contentFooterText   = $('.contentFooter_text');
 
             contentHeadText.on('keyup', function () {
                 var text = $(this).val();
@@ -211,7 +215,7 @@
                 }
             });
 
-            contentBodyText.on('keyup', function () {
+            contentBodyText.on('change', function () {
                 var text = $(this).val();
 
                 if(text.length > 0) {
@@ -221,10 +225,21 @@
                 }
             });
 
+            contentFooterText.on('change', function () {
+                var text = $(this).val();
+
+                if(text.length > 0) {
+                    iContentSectionFooter.html(text);
+                }else if(!text.length){
+                    iContentSectionFooter.html(contentFooterText.attr('placeholder'));
+                }
+            });
+
             return{
                 set : function(){
                     contentHeadText.trigger('keyup');
-                    contentBodyText.trigger('keyup');
+                    contentBodyText.trigger('change');
+                    contentFooterText.trigger('change');
                 }
             }
 

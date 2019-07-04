@@ -32,8 +32,8 @@
         ;
 
         var setContent = function(){
-            iContentSection                 = $('section', iContentArea),
-            iContentSectionContent          = $('.card', iContentSection),
+            iContentSection                 = iContentArea.find('div:first'),
+            iContentSectionContent          = iContentSection.find('div:first'),
             iContentSectionH3               = $('h3', iContentSection),
             iContentSectionButton           = $('button', iContentSection),
             iContentSectionHead             = $('h3', iContentSection),

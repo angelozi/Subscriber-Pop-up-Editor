@@ -23,20 +23,20 @@
         var iContentArea = $('.iContent_Area') ,
             iContentSection ,
             iContentSectionContent,
-            iContentSectionH3,
             iContentSectionButton,
             iContentSectionField,
             iContentSectionHead,
             iContentSectionBody,
-            iContentSectionFooter
+            iContentSectionFooter,
+            iContentSectionImage
         ;
 
         var setContent = function(){
-            iContentSection                 = iContentArea.find('div:first'),
-            iContentSectionContent          = iContentSection.find('div:first'),
-            iContentSectionH3               = $('h3', iContentSection),
+            iContentSection                 = iContentArea.find('div').eq(0),
+            iContentSectionContent          = iContentSection.find('div').eq(0),
             iContentSectionButton           = $('button', iContentSection),
             iContentSectionHead             = $('h3', iContentSection),
+            iContentSectionImage            = iContentSectionContent.find('div').eq(1),
             iContentSectionBody             = iContentSectionHead.nextAll().eq(0),
             iContentSectionField            = iContentSectionHead.nextAll().eq(1),
             iContentSectionFooter           = iContentSectionHead.nextAll().eq(2);
@@ -44,6 +44,7 @@
             buttonStyle.set();
             availableFields.set();
             contentTexts.set();
+            contentImage.set();
 
         }
 
@@ -80,7 +81,7 @@
 
             textColor.on('change', function () {
                 iContentSection.css("color", $(this).val());
-                iContentSectionH3.css("color", $(this).val());
+                iContentSectionHead.css("color", $(this).val());
             });
 
             backgroundColor.on('change', function () {
@@ -244,6 +245,52 @@
             }
 
         }());
+
+        var contentImage =  (function () {
+
+            var
+                browseImageBtn     = $('.contentImage a').eq(0),
+                deleteImageBtn     = $('.contentImage a').eq(1),
+                thumbImage         = $('.contentImage img'),
+                browseImage        = $('.contentImage input:file');
+
+             browseImageBtn.on('click', function () {
+                 browseImage.trigger('click');
+            });
+
+            deleteImageBtn.on('click', function () {
+                $(this).addClass('d-none');
+                iContentSectionImage.css('background-image', 'url(../placeholder.jpg)');
+                thumbImage.prop('src', '../placeholder.jpg' );
+            });
+
+             browseImage.on('change', function () {
+                 var file = $(this);
+                 var files = file.prop('files');
+                 var url = $(this).val();
+                 var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+
+                 if (files && files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+                     var reader = new FileReader();
+                     reader.onload = function (e) {
+                         iContentSectionImage.css('background-image', 'url('+ e.target.result+')');
+                         thumbImage.prop('src', e.target.result );
+                         browseImageBtn.next().removeClass('d-none');
+                     }
+                     reader.readAsDataURL(files[0]);
+                 }
+             });
+
+            return{
+                set : function(){
+                    browseImage.trigger('change');
+                }
+            }
+
+        }());
+
+
+
     });
 
 }(jQuery));

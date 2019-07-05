@@ -249,19 +249,21 @@
         var contentImage =  (function () {
 
             var
-                browseImageBtn     = $('.contentImage a').eq(0),
-                deleteImageBtn     = $('.contentImage a').eq(1),
+                browseImageBtn     = $('.contentImage').find('a').eq(0),
+                deleteImageBtn     = $('.contentImage').find('a').eq(1),
                 thumbImage         = $('.contentImage img'),
                 browseImage        = $('.contentImage input:file');
 
+            console.log(browseImageBtn.text());
+            console.log(deleteImageBtn.text());
              browseImageBtn.on('click', function () {
                  browseImage.trigger('click');
             });
 
             deleteImageBtn.on('click', function () {
-                $(this).addClass('d-none');
+                $(this).parent().addClass('d-none');
                 iContentSectionImage.css('background-image', 'url(../placeholder.jpg)');
-                thumbImage.prop('src', '../placeholder.jpg' );
+                thumbImage.prop('src', 'empty-image.svg' );
             });
 
              browseImage.on('change', function () {

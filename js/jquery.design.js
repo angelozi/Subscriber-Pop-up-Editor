@@ -254,8 +254,6 @@
                 thumbImage         = $('.contentImage img'),
                 browseImage        = $('.contentImage input:file');
 
-            console.log(browseImageBtn.text());
-            console.log(deleteImageBtn.text());
              browseImageBtn.on('click', function () {
                  browseImage.trigger('click');
             });
@@ -291,7 +289,25 @@
 
         }());
 
+        var publishContent =  (function () {
+            var
+                formPublish = $('.formPublish'),
+                formDownload = $('.formDownload')
+            ;
 
+            formPublish.on('click', function(){
+
+                var formHtml =  iContentSection.html();
+                var data = new Blob([formHtml], {type: 'text/html'});
+                if (formHtml !== null) {
+                    window.URL.revokeObjectURL(formHtml);
+                }
+                var DonwloadLink  = window.URL.createObjectURL(data);
+                window.location.href = DonwloadLink;
+
+            });
+
+        }());
 
     });
 

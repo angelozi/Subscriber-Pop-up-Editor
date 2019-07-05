@@ -260,7 +260,7 @@
 
             deleteImageBtn.on('click', function () {
                 $(this).parent().addClass('d-none');
-                iContentSectionImage.css('background-image', 'url(../placeholder.jpg)');
+                iContentSectionImage.css('background-image', 'url(placeholder.jpg)');
                 thumbImage.prop('src', 'empty-image.svg' );
             });
 

@@ -96,7 +96,7 @@ body
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-
+    height: 100%;
     margin: 0;
 
     text-align: left;
@@ -789,6 +789,7 @@ pre code
 
 .row
 {
+    height: 100%;
     display: flex;
 
     margin-right: -15px;
@@ -12606,6 +12607,7 @@ main
 
 main
 {
+    height: 100%;
     overflow: hidden;
 }
 
